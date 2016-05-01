@@ -1,0 +1,8 @@
+RabaEUOdotNET0.5_Dll
+	Contiene la DLL che permette di connettersi al client.
+	Dipende a sua volta da uo.dll
+
+SSRabaWrapper
+	Wrapper C++ per poter utilizzare in maniera comoda la DLL RabaEUOdotNET
+	Si tratta di una libreria statica
+	
