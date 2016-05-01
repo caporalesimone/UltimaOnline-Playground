@@ -1,3 +1,7 @@
+NB.
+Se ci sono problemi di inizializzazione della uo.dll bisogna aprire e
+chiudere EasyUO.
+
 RabaEUOdotNET0.5_Dll
 	Contiene la DLL che permette di connettersi al client.
 	Dipende a sua volta da uo.dll

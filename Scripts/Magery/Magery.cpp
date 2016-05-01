@@ -7,8 +7,11 @@
 int main()
 {
 	UOWrapper uo;
+	if(uo.InitWrapper() == false) return 0;
 
-	bool bret = uo.InitAll();
+
+
+
 
     return 0;
 }

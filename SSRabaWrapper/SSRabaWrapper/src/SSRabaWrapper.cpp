@@ -268,14 +268,23 @@ UOWrapper::UOWrapper()
 
 UOWrapper::~UOWrapper()
 {
+	CloseWrapper();
 }
 
-bool UOWrapper::InitAll(void)
+bool UOWrapper::InitWrapper(void)
 {
 	bool pass = REUONetInit();
-	pass &= REUONetOpen();
+	if (pass == false) return false;
+	pass = REUONetOpen();
+	if (pass == false) return false;
 	REUONetCommandSysMessage("SimonSoft (c)2016 - Script Started");
 	return pass;
+}
+
+void UOWrapper::CloseWrapper(void)
+{
+	REUONetClose();
+	REUONetFree();
 }
 
 bool UOWrapper::GetStringVar(const int& varName, std::string& value)

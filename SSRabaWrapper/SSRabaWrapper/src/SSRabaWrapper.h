@@ -497,7 +497,7 @@ public:
 	virtual ~UOWrapper();
 
 public:
-	bool InitAll(void);
+	bool InitWrapper(void);
 
 	bool SetStringVar(const int& VarName, const std::string& value);
 	bool SetIntegerVar(const int& varName, const int& value);
@@ -515,5 +515,7 @@ public:
 private:
 	std::map<int, std::string> CommandsList;		// Command Enum, String Value
 	std::map<int, std::pair<int, int>> MacroList;	// Macro Enum, Param1, Param2
+
+	void CloseWrapper(void);
 
 };
