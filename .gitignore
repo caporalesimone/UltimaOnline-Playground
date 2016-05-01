@@ -7,6 +7,7 @@
 
 /Scripts/Debug
 /Scripts/Magery/Debug
+/Scripts/Taming/Debug
 *.suo
 *.db
 *.opendb
