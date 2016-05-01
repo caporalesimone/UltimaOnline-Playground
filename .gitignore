@@ -1,16 +1,11 @@
+
 /RabaEUOdotNET0.5_Dll/Release
-/RabaEUOdotNET0.5_Dll/RabaEUOdotNET.VC.db
-/RabaEUOdotNET0.5_Dll/RabaEUOdotNET.VC.VC.opendb
+
 /RabaEUOdotNET0.5_Dll/RabaEUOdotNET/Release
-/SSRabaWrapper/Debug
 
 /SSRabaWrapper/Debug
 /SSRabaWrapper/SSRabaWrapper/Debug
-/SSRabaWrapper/SSRabaWrapper.VC.VC.opendb
-/SSRabaWrapper/SSRabaWrapper/Debug/SSRabaWrapper.tlog
-/SSRabaWrapper/SSRabaWrapper/Debug/SSRabaWrapper.idb
-/SSRabaWrapper/SSRabaWrapper/Debug/SSRabaWrapper.log
-/SSRabaWrapper/SSRabaWrapper/Debug/SSRabaWrapper.obj
-/SSRabaWrapper/SSRabaWrapper/Debug/SSRabaWrapper.pdb
 *.suo
-/SSRabaWrapper/SSRabaWrapper.VC.db
+*.db
+*.opendb
+
