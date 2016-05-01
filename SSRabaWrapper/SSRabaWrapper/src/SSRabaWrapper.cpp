@@ -275,9 +275,12 @@ bool UOWrapper::InitWrapper(void)
 {
 	bool pass = REUONetInit();
 	if (pass == false) return false;
+	::Sleep(500);
 	pass = REUONetOpen();
 	if (pass == false) return false;
+	::Sleep(500);
 	REUONetCommandSysMessage("SimonSoft (c)2016 - Script Started");
+	::Sleep(500);
 	return pass;
 }
 
