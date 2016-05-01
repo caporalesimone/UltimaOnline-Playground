@@ -5,6 +5,8 @@
 
 /SSRabaWrapper/Debug
 /SSRabaWrapper/SSRabaWrapper/Debug
+/Scripts/Debug
+/Scripts/Magery/Debug
 *.suo
 *.db
 *.opendb
