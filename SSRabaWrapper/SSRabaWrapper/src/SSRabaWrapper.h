@@ -497,6 +497,8 @@ public:
 	virtual ~UOWrapper();
 
 public:
+	bool InitAll(void);
+
 	bool SetStringVar(const int& VarName, const std::string& value);
 	bool SetIntegerVar(const int& varName, const int& value);
 	bool SetBooleanVar(const int& varName, const bool& value);

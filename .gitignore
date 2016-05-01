@@ -1,10 +1,10 @@
-
 /RabaEUOdotNET0.5_Dll/Release
-
+/RabaEUOdotNET0.5_Dll/ipch
 /RabaEUOdotNET0.5_Dll/RabaEUOdotNET/Release
 
 /SSRabaWrapper/Debug
 /SSRabaWrapper/SSRabaWrapper/Debug
+
 /Scripts/Debug
 /Scripts/Magery/Debug
 *.suo

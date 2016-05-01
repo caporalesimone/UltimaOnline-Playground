@@ -3,16 +3,27 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
     <Raba_Include_Path>$(SolutionDir)..\RabaEUOdotNET0.5_Dll\RabaEUOdotNET</Raba_Include_Path>
+    <RabaLibName>RabaEUOdotNET.lib</RabaLibName>
+    <RabaLibPath>$(SolutionDir)..\LibsDeploy\</RabaLibPath>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup>
     <ClCompile>
       <AdditionalIncludeDirectories>$(Raba_Include_Path);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Lib>
+      <AdditionalDependencies>$(RabaLibName)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <BuildMacro Include="Raba_Include_Path">
       <Value>$(Raba_Include_Path)</Value>
+    </BuildMacro>
+    <BuildMacro Include="RabaLibName">
+      <Value>$(RabaLibName)</Value>
+    </BuildMacro>
+    <BuildMacro Include="RabaLibPath">
+      <Value>$(RabaLibPath)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>

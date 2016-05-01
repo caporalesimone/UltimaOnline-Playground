@@ -270,6 +270,14 @@ UOWrapper::~UOWrapper()
 {
 }
 
+bool UOWrapper::InitAll(void)
+{
+	bool pass = REUONetInit();
+	pass &= REUONetOpen();
+	REUONetCommandSysMessage("SimonSoft (c)2016 - Script Started");
+	return pass;
+}
+
 bool UOWrapper::GetStringVar(const int& varName, std::string& value)
 {
 	char out_val[MAX_STRING_LENGTH] = { 0 };
