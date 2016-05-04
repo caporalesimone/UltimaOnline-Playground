@@ -264,6 +264,61 @@ UOWrapper::UOWrapper()
 	MacroList[Macro::Miscellaneous::Secondary_Ability] = std::make_pair(36, 0);
 	MacroList[Macro::Miscellaneous::Equip_Last_Weapon] = std::make_pair(37, 0);
 
+
+	SkillName[Skills::Alchemy] = std::make_pair("Alch", "Alchemy");
+	SkillName[Skills::Blacksmithy] = std::make_pair("Blac", "Blacksmithy");
+	SkillName[Skills::Bowcraft_Fletching] = std::make_pair("Bowc", "Bowcraft Fletching");
+	SkillName[Skills::Bushido] = std::make_pair("Bush", "Bushido");
+	SkillName[Skills::Carpentry] = std::make_pair("Carp", "Carpentry");
+	SkillName[Skills::Chivalry] = std::make_pair("Chiv", "Chivalry");
+	SkillName[Skills::Cooking] = std::make_pair("Cook", "Cooking");
+	SkillName[Skills::Fishing] = std::make_pair("Fish", "Fishing");
+	SkillName[Skills::Focus] = std::make_pair("Focu", "Focus");
+	SkillName[Skills::Healing] = std::make_pair("Heal", "Healing");
+	SkillName[Skills::Herding] = std::make_pair("Herd", "Herding");
+	SkillName[Skills::Lockpicking] = std::make_pair("Lock", "Lockpicking");
+	SkillName[Skills::Lumberjacking] = std::make_pair("Lumb", "Lumberjacking");
+	SkillName[Skills::Magery] = std::make_pair("Mage", "Magery");
+	SkillName[Skills::Meditation] = std::make_pair("Medi", "Meditation");
+	SkillName[Skills::Mining] = std::make_pair("Mini", "Mining");
+	SkillName[Skills::Musicianship] = std::make_pair("Musi", "Musicianship");
+	SkillName[Skills::Necromancy] = std::make_pair("Necr", "Necromancy");
+	SkillName[Skills::Ninjitsu] = std::make_pair("Ninj", "Ninjitsu");
+	SkillName[Skills::Remove_Trap] = std::make_pair("Remo", "Remove Trap");
+	SkillName[Skills::Resisting_Spells] = std::make_pair("Resi", "Resisting Spells");
+	SkillName[Skills::Snooping] = std::make_pair("Snoo", "Snooping");
+	SkillName[Skills::Stealing] = std::make_pair("Stea", "Stealing");
+	SkillName[Skills::Stealth] = std::make_pair("Stlt", "Stealth");
+	SkillName[Skills::Tailoring] = std::make_pair("Tail", "Tailoring");
+	SkillName[Skills::Tinkering] = std::make_pair("Tink", "Tinkering");
+	SkillName[Skills::Veterinary] = std::make_pair("Vete", "Veterinary");
+	SkillName[Skills::Archery] = std::make_pair("Arch", "Archery");
+	SkillName[Skills::Fencing] = std::make_pair("Fenc", "Fencing");
+	SkillName[Skills::Mace_Fighting] = std::make_pair("Mace", "Mace Fighting");
+	SkillName[Skills::Parrying] = std::make_pair("Parr", "Parrying");
+	SkillName[Skills::Swordsmanship] = std::make_pair("Swor", "Swordsmanship");
+	SkillName[Skills::Tactics] = std::make_pair("Tact", "Tactics");
+	SkillName[Skills::Wrestling] = std::make_pair("Wres", "Wrestling");
+	SkillName[Skills::Animal_Taming] = std::make_pair("Anim", "Animal Taming");
+	SkillName[Skills::Begging] = std::make_pair("Begg", "Begging");
+	SkillName[Skills::Camping] = std::make_pair("Camp", "Camping");
+	SkillName[Skills::Detecting_Hidden] = std::make_pair("Dete", "Detecting Hidden");
+	SkillName[Skills::Discordance] = std::make_pair("Disc", "Discordance");
+	SkillName[Skills::Hiding] = std::make_pair("Hidi", "Hiding");
+	SkillName[Skills::Inscription] = std::make_pair("Insc", "Inscription");
+	SkillName[Skills::Peacemaking] = std::make_pair("Peac", "Peacemaking");
+	SkillName[Skills::Poisoning] = std::make_pair("Pois", "Poisoning");
+	SkillName[Skills::Provocation] = std::make_pair("Prov", "Provocation");
+	SkillName[Skills::Spirit_Speak] = std::make_pair("Spir", "Spirit Speak");
+	SkillName[Skills::Tracking] = std::make_pair("Trac", "Tracking");
+	SkillName[Skills::Anatomy] = std::make_pair("Anat", "Anatomy");
+	SkillName[Skills::Animal_Lore] = std::make_pair("Anil", "Animal Lore");
+	SkillName[Skills::Arms_Lore] = std::make_pair("Arms", "Arms Lore");
+	SkillName[Skills::Evaluating_Intelligence] = std::make_pair("Eval", "Evaluating Intelligence");
+	SkillName[Skills::Forensic_Evaluation] = std::make_pair("Fore", "Forensic Evaluation");
+	SkillName[Skills::Item_Identification] = std::make_pair("Item", "Item Identification");
+	SkillName[Skills::Taste_Identification] = std::make_pair("Tast", "Taste Identification");
+	
 }
 
 UOWrapper::~UOWrapper()
@@ -338,6 +393,14 @@ bool UOWrapper::SetBooleanVar(const int& varName, const bool& value)
 {
 	std::string command = CommandsList[varName].c_str();
 	int retVal = REUONetSetBooleanVar((char*)command.c_str(), value);
+	if (retVal == -1) return false;
+	return true;
+}
+
+bool UOWrapper::GetSkill(const int& Skill, int& base, int& real, int& cap, Skills::LockStatus& status)
+{
+	std::string skillname = SkillName[Skill].first; // Primo elemendo del pair è la stringa abbreviata con il nome della skill
+	int retVal = REUONetCommandGetSkill((char*)skillname.c_str(), &base, &real, &cap, (LPINT) &status);
 	if (retVal == -1) return false;
 	return true;
 }

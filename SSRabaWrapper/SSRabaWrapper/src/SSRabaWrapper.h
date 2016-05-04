@@ -491,6 +491,94 @@ public:
 		};
 	};
 
+	struct Item
+	{
+		int ID;
+		int Type;
+		int Kind;
+		int PosX;
+		int PosY;
+		int PosZ;
+		int ContID;
+		int Stack;
+		int Reputation;
+		int Color;
+	};
+
+	struct Skills
+	{
+		enum LockStatus
+		{
+			Up = 0,
+			Down = 1,
+			Locked = 2,
+		};
+
+		enum
+		{
+			//Miscellaneous Skills
+			Alchemy,
+			Blacksmithy,
+			Bowcraft_Fletching,
+			Bushido,
+			Carpentry,
+			Chivalry,
+			Cooking,
+			Fishing,
+			Focus,
+			Healing,
+			Herding,
+			Lockpicking,
+			Lumberjacking,
+			Magery,
+			Meditation,
+			Mining,
+			Musicianship,
+			Necromancy,
+			Ninjitsu,
+			Remove_Trap,
+			Resisting_Spells,
+			Snooping,
+			Stealing,
+			Stealth,
+			Tailoring,
+			Tinkering,
+			Veterinary,
+
+			//Combat Skills		
+			Archery,
+			Fencing,
+			Mace_Fighting,
+			Parrying,
+			Swordsmanship,
+			Tactics,
+			Wrestling,
+
+			//Actions			
+			Animal_Taming,
+			Begging,
+			Camping,
+			Detecting_Hidden,
+			Discordance,
+			Hiding,
+			Inscription,
+			Peacemaking,
+			Poisoning,
+			Provocation,
+			Spirit_Speak,
+			Tracking,
+
+			//Lore & Knowledge	
+			Anatomy,
+			Animal_Lore,
+			Arms_Lore,
+			Evaluating_Intelligence,
+			Forensic_Evaluation,
+			Item_Identification,
+			Taste_Identification,
+		};
+	};
+
 
 
 public:
@@ -503,19 +591,23 @@ public:
 	bool SetStringVar(const int& VarName, const std::string& value);
 	bool SetIntegerVar(const int& varName, const int& value);
 	bool SetBooleanVar(const int& varName, const bool& value);
+
 	bool GetStringVar(const int& varName, std::string& value);
 	bool GetIntegerVar(const int& varName, int& value);
 	bool GetBooleanVar(const int& varName, bool& value);
 
-	bool UseMacro(const int& Macro);
+	bool GetSkill(const int& Skill, int& base, int& real, int& cap, Skills::LockStatus& status);  // http://wiki.easyuo.com/index.php/ChooseSkill
+
+	bool UseMacro(const int& Macro); // Enums from Macro struct
 	bool UseMacro(const int& Macro, const std::string& Text);
 
 	bool WaitForTarget(const int& Timeout = 2000);
 
-
+		
 private:
-	std::map<int, std::string> CommandsList;		// Command Enum, String Value
-	std::map<int, std::pair<int, int>> MacroList;	// Macro Enum, Param1, Param2
+	std::map<int, std::string> CommandsList;						// Command Enum, String Value
+	std::map<int, std::pair<int, int>> MacroList;					// Macro Enum, Param1, Param2
+	std::map<int, std::pair<std::string, std::string>> SkillName;	// Skill Enum, Skill Name Short, Skill Name Complete 
 
 	void CloseWrapper(void);
 
