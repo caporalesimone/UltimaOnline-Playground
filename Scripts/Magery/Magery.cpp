@@ -13,7 +13,7 @@ int main()
 	int cnt = 1;
 	while (true)
 	{
-		printf("%d - Cast spell\n", cnt++);
+		printf("%d - Casting spell ", cnt++);
 		int base, real, cap;
 		UOWrapper::Skills::LockStatus status;
 		uo.GetSkill(UOWrapper::Skills::Magery, base, real, cap, status);
@@ -26,25 +26,29 @@ int main()
 		else if (base >= 400 && base <= 550)
 		{
 			uo.UseMacro(UOWrapper::Macro::Magery::Circle_4::Cast_Spell_Mana_Drain);
+			printf("Mana Drain\n");
 		}
 		else if (base > 550 && base <= 650)
 		{
 			uo.UseMacro(UOWrapper::Macro::Magery::Circle_5::Cast_Spell_Paralyze);
+			printf("Paralize\n");
 		}
 		else if (base > 650 && base <= 750)
 		{
 			uo.UseMacro(UOWrapper::Macro::Magery::Circle_6::Cast_Spell_Reveal);
+			printf("Reveal\n");
 		}
 		else if (base > 750 && base <= 950)
 		{
 			uo.UseMacro(UOWrapper::Macro::Magery::Circle_7::Cast_Spell_Mana_Vampire);
+			printf("Mana Vampire\n");
 		}
 		else if (base > 950)
 		{
 			uo.UseMacro(UOWrapper::Macro::Magery::Circle_8::Cast_Spell_Earthquake);
+			printf("Earthquake\n");
+			//TODO: Non richiede il target mi pare quindi usare un bool per skippare la wait for target
 		}
-
-
 
 		::Sleep(150);
 		printf("Wait for target\n");
